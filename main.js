@@ -1,6 +1,7 @@
 import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { Card, Button } from 'react-native-elements';
 import Deck from './src/Deck';
 
 const DATA = [
@@ -16,8 +17,12 @@ const DATA = [
 
 class App extends React.Component {
   renderCard(item) {
+    const { id, text, uri } = item;
     return (
-      <Text>{item.text}</Text>
+      <Card key={id} title={text} image={{ uri }}>
+        <Text style={{ marginBottom: 10 }}> further customization </Text>
+        <Button icon={{ name: 'code' }} backgroundColor="#03a9f4" title="View Now" />
+      </Card>
     );
   }
 
